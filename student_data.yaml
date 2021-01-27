@@ -1,0 +1,14 @@
+- roll: 1
+  name: Martin D'vloper
+  job: Developer
+  skills:
+   - python
+   - perl
+   - pascal
+- roll: 2
+  name: Tabitha Bitumen
+  job: Developer
+  skills:
+   - lisp
+   - fortran
+   - erlang

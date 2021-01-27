@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, intial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+     <title>Student Data</title>      
+</head>       
+
+<body>
+    <h1>Student Data</h1>
+ <form action="/getData" method="POST" >
+    <label for="fname">Enter Rollno:</label>
+     <input type="text" name="first" id="fir" placeholder="Roll No"><br><br>
+   
+    <input type="submit" value="GetData">
+    <br>
+    <br>
+ </form>
+
+  <p>{{ .Name }} Data is: </p>
+  <p> Name   : {{.Name}}<br>
+      RollNo : {{.Roll}}<br>
+      Job    : {{.Job}}<br>
+      skills : {{.Skills}}<br>
+  </p>    
+</body>
+</html>
