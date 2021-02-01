@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/parth-gr/RH_PROJECT/studentData"
+	studentdata "github.com/parth-gr/RH_PROJECT/studentData"
 )
 
 func index(w http.ResponseWriter, r *http.Request) {
@@ -17,9 +17,9 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", index)                      //router and function
-	http.HandleFunc("/getData", studentData.GetData) //from studenData package exported the functions
-	http.HandleFunc("/updateData", studentData.UpdateData)
-	http.HandleFunc("/changeValue", studentData.UpdateDataValue)
+	http.HandleFunc("/getData", studentdata.GetData) //from studenData package exported the functions
+	http.HandleFunc("/updateData", studentdata.UpdateData)
+	http.HandleFunc("/changeValue", studentdata.UpdateDataValue)
 	fmt.Println("server starting")
 	log.Fatal(http.ListenAndServe(":4000", nil)) //port number
 }

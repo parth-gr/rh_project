@@ -1,4 +1,4 @@
-package studentData
+package studentdata
 
 import (
 	"fmt"
