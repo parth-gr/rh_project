@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, intial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">     
+</head>
+
+<body>
+    
+    <p>Update Data of  ROLLNO :{{.RollNo}}</p>  
+    
+    <form action="/changeValue" method="POST" >
+      
+       <label for="fname">Change name:</label>
+      <input type="text" name="name" id="fir" placeholder="name">
+      <label for="fname">Change Job:</label>
+      <input type="text" name="job" id="fir" placeholder="job">
+      <label for="fname">Add skills:</label>
+      <input type="text" name="skills" id="fir" placeholder="Add skills"><br><br>
+      <input type="hidden" id="rollno" name="rollno" value={{.RollNo}}>
+
+       <input type="submit" value="updateData" >
+       <br>
+       <br>
+    </form>
+   
+</body>
+
+</html>

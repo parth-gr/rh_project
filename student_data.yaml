@@ -1,14 +1,14 @@
-- roll: 1
-  name: Martin D'vloper
-  job: Developer
+- name: 'Parth '
+  roll: "1"
+  job: software engineer
   skills:
-   - python
-   - perl
-   - pascal
-- roll: 2
-  name: Tabitha Bitumen
-  job: Developer
+  - python
+  - perl
+  - pascal
+- name: Eeshwari b
+  roll: "2"
+  job: computer engineer
   skills:
-   - lisp
-   - fortran
-   - erlang
+  - lisp
+  - fortran
+  - erlang
