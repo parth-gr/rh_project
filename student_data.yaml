@@ -1,13 +1,15 @@
-- name: 'Parth '
+- name: Parth Arora
   roll: "1"
-  job: software engineer
+  age: "10"
+  class: "7"
   skills:
   - python
   - perl
   - pascal
 - name: Eeshwari b
   roll: "2"
-  job: computer engineer
+  age: "13"
+  class: "8"
   skills:
   - lisp
   - fortran

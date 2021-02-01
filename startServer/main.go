@@ -16,10 +16,10 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", index) //router and function
-	http.HandleFunc("/getData", studentData.GetData)
+	http.HandleFunc("/", index)                      //router and function
+	http.HandleFunc("/getData", studentData.GetData) //from studenData package exported the functions
 	http.HandleFunc("/updateData", studentData.UpdateData)
 	http.HandleFunc("/changeValue", studentData.UpdateDataValue)
 	fmt.Println("server starting")
-	log.Fatal(http.ListenAndServe(":4000", nil))
+	log.Fatal(http.ListenAndServe(":4000", nil)) //port number
 }
