@@ -23,3 +23,8 @@ func main() {
 	fmt.Println("server starting")
 	log.Fatal(http.ListenAndServe(":4000", nil)) //port number
 }
+
+//run docker file
+//  docker build -t RH_PROJECT .
+// docker image ls
+//  docker run -p 4000:4000 -tid rh_project
