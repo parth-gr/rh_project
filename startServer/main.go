@@ -5,8 +5,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-
-	studentdata "github.com/parth-gr/RH_PROJECT/studentData"
+	//studentdata "github.com/parth-gr/rh_project/studentData"
 )
 
 func index(w http.ResponseWriter, r *http.Request) {
@@ -16,10 +15,10 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", index)                      //router and function
-	http.HandleFunc("/getData", studentdata.GetData) //from studenData package exported the functions
-	http.HandleFunc("/updateData", studentdata.UpdateData)
-	http.HandleFunc("/changeValue", studentdata.UpdateDataValue)
+	http.HandleFunc("/", index) //router and function
+	//http.HandleFunc("/getData", studentdata.GetData) //from studenData package exported the functions
+	//http.HandleFunc("/updateData", studentdata.UpdateData)
+	//http.HandleFunc("/changeValue", studentdata.UpdateDataValue)
 	fmt.Println("server starting")
 	log.Fatal(http.ListenAndServe(":4000", nil)) //port number
 }
@@ -28,3 +27,14 @@ func main() {
 //  docker build -t RH_PROJECT .
 // docker image ls
 //  docker run -p 4000:4000 -tid rh_project
+// FROM golang:latest
+
+// RUN mkdir /app
+// ADD . /app
+// WORKDIR /app
+
+// RUN go build -o main .
+
+// EXPOSE 4000
+
+// ENTRYPOINT ["/app/main"]
