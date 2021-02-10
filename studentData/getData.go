@@ -30,7 +30,7 @@ func GetData(w http.ResponseWriter, r *http.Request) { //GetData capital as it n
 
 	studentsData := &[]Student{} //reference object of the structure Student
 
-	source, err := ioutil.ReadFile("../student_data.yaml") //red data from Yaml file
+	source, err := ioutil.ReadFile("student_data.yaml") //red data from Yaml file
 	if err != nil {
 		log.Println(err)
 	}
@@ -46,7 +46,7 @@ func GetData(w http.ResponseWriter, r *http.Request) { //GetData capital as it n
 		log.Println(err)
 	} else {
 		rollno--
-		t, _ := template.ParseFiles("../template.html")
+		t, _ := template.ParseFiles("template.html")
 		t.Execute(w, (*studentsData)[rollno])
 	}
 	uri := r.URL.String() //printing the log output

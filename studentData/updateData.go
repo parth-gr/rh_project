@@ -30,7 +30,7 @@ func UpdateDataValue(w http.ResponseWriter, r *http.Request) {
 
 	studentsData := &[]Student{}
 
-	source, err := ioutil.ReadFile("../student_data.yaml") //reading yaml data
+	source, err := ioutil.ReadFile("student_data.yaml") //reading yaml data
 	if err != nil {
 		log.Println(err)
 	}
@@ -67,7 +67,7 @@ func UpdateDataValue(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalf("error: %v", err)
 	}
-	err = ioutil.WriteFile("../student_data.yaml", d, 0644)
+	err = ioutil.WriteFile("student_data.yaml", d, 0644)
 
 	http.Redirect(w, r, "/", http.StatusSeeOther) //redirecting to the home page
 
@@ -85,7 +85,7 @@ func UpdateData(w http.ResponseWriter, r *http.Request) {
 
 	studentsData := &[]Student{}
 
-	source, err := ioutil.ReadFile("../student_data.yaml")
+	source, err := ioutil.ReadFile("student_data.yaml")
 	if err != nil {
 		log.Println(err)
 	}
@@ -108,7 +108,7 @@ func UpdateData(w http.ResponseWriter, r *http.Request) {
 
 		rolldata1 := rolldata{RollNo: Rollno}
 
-		t, _ := template.ParseFiles("../update.html")
+		t, _ := template.ParseFiles("update.html")
 		t.Execute(w, rolldata1)
 	}
 

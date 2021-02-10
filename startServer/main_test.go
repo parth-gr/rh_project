@@ -7,7 +7,7 @@ import (
 )
 
 func TestRootEndpoint(t *testing.T) {
-	request, err := http.NewRequest("GET", "localhost:4000/", nil)
+	request, err := http.NewRequest("GET", "localhost:5000/", nil)
 
 	if err != nil {
 		t.Fatalf("request not created %v", err)
