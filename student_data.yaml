@@ -1,11 +1,12 @@
-- name: Parth Arora
+- name: ParthA
   roll: "1"
-  age: "10"
+  age: "13"
   class: "7"
   skills:
   - python
   - perl
   - pascal
+  - golang
 - name: Saumya
   roll: "2"
   age: "13"

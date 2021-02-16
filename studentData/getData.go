@@ -7,20 +7,19 @@ import (
 	"log"
 	"net/http"
 	"strconv"
-
 	"gopkg.in/yaml.v2"
 )
 
-func GetData(w http.ResponseWriter, r *http.Request) { //GetData capital as it need to be exported
-
-	if r.Method != "POST" { //if the method is GET so redirect it back to the Home page
+// GetData capital as it need to be exported
+func GetData(w http.ResponseWriter, r *http.Request) { 
+    // if the method is GET so redirect it back to the Home page
+	if r.Method != "POST" { 
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
-
-	Rollno := r.FormValue("first") //extract the input from the user
-
-	type Student struct { //Structure format for reading the data from YAML file(student_data.yaml)
+	rollno := r.FormValue("first") // extract the input from the user
+// structure format for reading the data from YAML file(student_data.yaml)
+	type student struct { 
 		Name   string   `yaml: "name"`
 		Roll   string   `yaml: "roll"`
 		Age    string   `yaml: "age"`
@@ -28,28 +27,27 @@ func GetData(w http.ResponseWriter, r *http.Request) { //GetData capital as it n
 		Skills []string `yaml: "skills"`
 	}
 
-	studentsData := &[]Student{} //reference object of the structure Student
-
-	source, err := ioutil.ReadFile("student_data.yaml") //red data from Yaml file
+	studentsData := &[]student{} // reference object of the structure Student
+	source, err := ioutil.ReadFile("student_data.yaml") // read data from Yaml file
 	if err != nil {
 		log.Println(err)
 	}
-	err = yaml.Unmarshal([]byte(source), &studentsData) //unmarsaling and passing refrence object
+	err = yaml.Unmarshal([]byte(source), &studentsData) // unmarsaling and passing refrence object
 	if err != nil {
 		log.Println(err)
 	}
 
-	rollno, err := strconv.Atoi(Rollno) //converting rollno string to integer
+	rollnoconverted, err := strconv.Atoi(rollno) // converting rollno string to integer
 
-	if len(*studentsData) < rollno || Rollno == "" { //checking if roll no is not excedding the range
+	if len(*studentsData) < rollnoconverted || rollno == "" || rollnoconverted == 0{ // checking if roll no is not excedding the range
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 		log.Println(err)
 	} else {
-		rollno--
+		rollnoconverted--
 		t, _ := template.ParseFiles("template.html")
-		t.Execute(w, (*studentsData)[rollno])
+		t.Execute(w, (*studentsData)[rollnoconverted])
 	}
-	uri := r.URL.String() //printing the log output
+	uri := r.URL.String() // printing the log output
 	method := r.Method
 	fmt.Println(uri, method)
 }
