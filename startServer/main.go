@@ -29,5 +29,3 @@ func main() {
 	}()
 	log.Fatal(http.ListenAndServe(":5001", nil)) // another port number
 }
-
-
