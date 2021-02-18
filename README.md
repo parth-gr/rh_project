@@ -2,7 +2,7 @@
 ## Learing GO, docker , kubernetes
 
 ### Start the project :
-- By clonning and running commond inside the rh_project Directory: 
+## - By clonning and running commond inside the rh_project Directory: 
 
  ```console 
  go run startServer/main.go
@@ -10,7 +10,7 @@
 
 > Open LocalHost port 5000 or 5001
 
-- By build container through Docker Image.
+## - By build container through Docker Image.
 
 Run Docker Daemon  
 ```console 
@@ -35,7 +35,7 @@ docker run -p 5000:5000 -tid  partharora1010/my-golang-app:v1.0.0
 ```
 >Open LocalHost port 5000 or 5001
 
-- By build container through Kubernetes cluster.
+## - By build container through Kubernetes cluster.
   
 ```console
 kubect apply -f rhminkube-config.yaml 
