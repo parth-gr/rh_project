@@ -41,3 +41,4 @@ docker run -p 5000:5000 -tid  partharora1010/my-golang-app:v1.0.0
 kubect apply -f rhminkube-config.yaml 
 kubectl port-forward {pod-name} 5000:5000
 ```  
+>Open LocalHost port 5000 or 5001
