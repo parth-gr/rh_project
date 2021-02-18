@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rhproject
+  labels:
+    app: rhproject
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rhproject
+  template:
+    metadata:
+      labels:
+        app: rhproject
+    spec:
+      containers:
+        - name: rhproject
+          image: partharora1010/my-golang-app:v1.0.0
+          ports:
+            - containerPort: 8080
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rhproject-service
+spec:
+  selector:
+    app: rhproject
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

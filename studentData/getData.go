@@ -10,7 +10,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-// GetData capital as it need to be exported
+// GetData capital as it need to be exported , used to get the data of the student
 func GetData(w http.ResponseWriter, r *http.Request) { 
     // if the method is GET so redirect it back to the Home page
 	if r.Method != "POST" { 
@@ -28,6 +28,8 @@ func GetData(w http.ResponseWriter, r *http.Request) {
 	}
 
 	studentsData := &[]student{} // reference object of the structure Student
+	
+
 	source, err := ioutil.ReadFile("student_data.yaml") // read data from Yaml file
 	if err != nil {
 		log.Println(err)
@@ -36,7 +38,7 @@ func GetData(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
-
+    fmt.Println(*studentsData)
 	rollnoconverted, err := strconv.Atoi(rollno) // converting rollno string to integer
 
 	if len(*studentsData) < rollnoconverted || rollno == "" || rollnoconverted == 0{ // checking if roll no is not excedding the range
